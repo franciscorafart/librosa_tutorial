@@ -1,18 +1,15 @@
-import librosa
 import IPython.display as ipd
+from librosa import load, display
 import matplotlib.pyplot as plt
 
-#Opening audio file
+# Opening audio file
 audio_path = './techno.wav'
-x, sr = librosa.load(audio_path, sr=44100)
+x, sr = load(audio_path, sr=44100)
 print(x.shape, sr)
 
-#playing sound file
+# Playing sound file
 ipd.Audio(audio_path)
 
+# Displaying wave image
 plt.figure(figsize=(14, 5))
-librosa.display.waveplot(x, sr=sr)
-
-print('Reaches the end')
-
-
+display.waveplot(x, sr=sr)
