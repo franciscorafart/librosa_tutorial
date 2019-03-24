@@ -26,3 +26,7 @@ display.specshow(log_S, x_axis='time', y_axis='chroma')
 onset_env = onset.onset_strength(x, sr=sr)
 tempo = beat.tempo(onset_env,sr=sr)
 print('tempo={}'.format(tempo))
+
+y_harmonic, y_percusive = effects.hpss(x)
+tempo, beats = beat.beat_track(y=y_percusive, sr=sr)
+print('tempo: {}, beats: {}'.format(tempo,beats))
